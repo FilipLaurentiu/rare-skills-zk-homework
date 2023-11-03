@@ -84,18 +84,17 @@ contract Homework3 {
 
         ECPoint[] memory result_matrix = new ECPoint[](n);
 
+        ECPoint memory g1 = G1; // gas saving
+
         for (uint256 row = 0; row < n; row++) {
             for (uint256 column = 0; column < n; column++) {
                 uint256 index = (row == 0) ? column : column + (n * row);
                 ECPoint memory p = ec_multiply(s[column], matrix[index]);
                 result_matrix[row] = ec_add(result_matrix[row], p);
             }
-        }
 
-        ECPoint memory g1 = G1; // gas saving
-        for (uint256 i = 0; i < n; i++) {
             require(
-                ec_eq(result_matrix[i], ec_multiply(g1, o[i])),
+                ec_eq(result_matrix[row], ec_multiply(g1, o[row])),
                 "Matrix entry not equal"
             );
         }

@@ -3,7 +3,6 @@ from hashlib import sha3_256
 from py_ecc.secp256k1.secp256k1 import N, G, add, multiply
 
 
-print(G + G)
 def sign(privKey, msg):
     h = int(sha3_256(msg).hexdigest(), 16)
     k = randint(2, N - 1)
