@@ -11,8 +11,8 @@ class G1_ECPoint:
 
 class G2_ECPoint:
     def __init__(self, P):
-        self.x = list([repr(P[0].coeffs[1]), repr(P[0].coeffs[0])])
-        self.y = list([repr(P[1].coeffs[1]), repr(P[1].coeffs[0])])
+        self.x = list([repr(P[0].coeffs[0]), repr(P[0].coeffs[1])])
+        self.y = list([repr(P[1].coeffs[0]), repr(P[1].coeffs[1])])
 
 
 @pytest.fixture

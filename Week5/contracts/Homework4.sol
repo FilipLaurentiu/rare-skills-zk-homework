@@ -106,34 +106,34 @@ contract Homework4 {
         input[0] = neg_A_1.x;
         input[1] = neg_A_1.y;
 
-        input[2] = B_2.x[0];
-        input[3] = B_2.x[1];
-        input[4] = B_2.y[0];
-        input[5] = B_2.y[1];
+        input[2] = B_2.x[1];
+        input[3] = B_2.x[0];
+        input[4] = B_2.y[1];
+        input[5] = B_2.y[0];
 
         input[6] = Alpha_G1.x;
         input[7] = Alpha_G1.y;
 
-        input[8] = Beta_G2.x[0];
-        input[9] = Beta_G2.x[1];
-        input[10] = Beta_G2.y[0];
-        input[11] = Beta_G2.y[1];
+        input[8] = Beta_G2.x[1];
+        input[9] = Beta_G2.x[0];
+        input[10] = Beta_G2.y[1];
+        input[11] = Beta_G2.y[0];
 
         input[12] = X_1.x;
         input[13] = X_1.y;
 
-        input[14] = Gamma_G2.x[0];
-        input[15] = Gamma_G2.x[1];
-        input[16] = Gamma_G2.y[0];
-        input[17] = Gamma_G2.y[1];
+        input[14] = Gamma_G2.x[1];
+        input[15] = Gamma_G2.x[0];
+        input[16] = Gamma_G2.y[1];
+        input[17] = Gamma_G2.y[0];
 
         input[18] = C_1.x;
         input[19] = C_1.y;
 
-        input[20] = Delta_G2.x[0];
-        input[21] = Delta_G2.x[1];
-        input[22] = Delta_G2.y[0];
-        input[23] = Delta_G2.y[1];
+        input[20] = Delta_G2.x[1];
+        input[21] = Delta_G2.x[0];
+        input[22] = Delta_G2.y[1];
+        input[23] = Delta_G2.y[0];
 
         (bool success, bytes memory data) = address(8).staticcall(
             abi.encode(input)
