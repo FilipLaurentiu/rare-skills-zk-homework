@@ -51,4 +51,4 @@ def test_verify_pairing(homework4_contract):
     # 0 = -A1*B2 + alpha1*beta2 + X1*gama2 + C1*delta2
     # 0 = -32*4 + 5*6 + (6+5+3)*3 + 8*7
     homework4_contract.verify_pairing(G1_ECPoint(
-        neg(A_1)), G2_ECPoint(B_2), G1_ECPoint(C_1), x_1, x_2, x_3)
+        A_1), G2_ECPoint(B_2), G1_ECPoint(C_1), x_1, x_2, x_3)

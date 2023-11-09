@@ -14,7 +14,7 @@ contract Homework4 {
     }
 
     uint256 constant PRIME_Q =
-        21888242871839275222246405745257275088548364400416034343698204186575808495617;
+        21888242871839275222246405745257275088696311157297823662689037894645226208583;
 
     G1_ECPoint G1 = G1_ECPoint(1, 2);
 
@@ -86,7 +86,7 @@ contract Homework4 {
     }
 
     function verify_pairing(
-        G1_ECPoint calldata neg_A_1,
+        G1_ECPoint calldata A_1,
         G2_ECPoint calldata B_2,
         G1_ECPoint calldata C_1,
         uint256 x_1,
@@ -100,6 +100,8 @@ contract Homework4 {
         G1_ECPoint memory X_1 = ec_add(ec_add(x_1G_1, x_2G_1), x_3G_1);
 
         uint256[24] memory input;
+
+        G1_ECPoint memory neg_A_1 = negate(A_1);
 
         input[0] = neg_A_1.x;
         input[1] = neg_A_1.y;
