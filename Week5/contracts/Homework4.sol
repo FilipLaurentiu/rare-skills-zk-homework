@@ -35,14 +35,6 @@ contract Homework4 {
         Delta_G2 = delta_G2;
     }
 
-    function inv_mod(uint256 n, uint256 m) public view returns (uint256 o) {
-        (bool ok, bytes memory result) = address(5).staticcall(
-            abi.encode(32, 32, 32, n, m - 2, m)
-        );
-        require(ok, "Fail");
-        return abi.decode(result, (uint256));
-    }
-
     function ec_add(
         G1_ECPoint memory A,
         G1_ECPoint memory B
@@ -65,13 +57,6 @@ contract Homework4 {
         require(ok, "Multiplication failed");
         G1_ECPoint memory res = abi.decode(result, (G1_ECPoint));
         return res;
-    }
-
-    function ec_eq(
-        G1_ECPoint memory A,
-        G1_ECPoint memory B
-    ) public pure returns (bool) {
-        return (A.x == B.x && A.y == B.y);
     }
 
     function negate(
