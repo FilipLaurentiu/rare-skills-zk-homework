@@ -1,6 +1,7 @@
 import numpy as np
 import random
 from functools import reduce
+from scipy.interpolate import lagrange
 
 # Define the matrices
 A = np.array([[0, 0, 3, 0, 0, 0],
@@ -16,8 +17,8 @@ C = np.array([[0, 0, 0, 0, 1, 0],
               [-3, 1, 1, 2, 0, -1]])
 
 # pick random values for x and y
-x = random.randint(1, 1000)
-y = random.randint(1, 1000)
+x = random.randint(1, 10)
+y = random.randint(1, 10)
 
 # this is our orignal formula
 out = 3 * x * x * y + 5 * x * y - x - 2*y + 3
@@ -45,7 +46,7 @@ def interpolate_polynomials(Matrix):
     result = list()
     for column_index in range(Matrix.shape[1]):
         column = Matrix[:, column_index]
-        coefficients = np.polyfit(range(len(Matrix)), column, len(Matrix)-1)
+        coefficients = lagrange(range(1, len(Matrix) + 1), column)
         result.append(np.poly1d(coefficients))
     return result
 
@@ -77,4 +78,4 @@ poly3 = inner_product_polynomials_with_witness(W_polys, w)
 h_x = np.polydiv(np.polysub(np.polymul(poly1, poly2), poly3), t_x)
 
 assert h_x[1] == np.poly1d([0]), "division has a reminder"
-assert poly1 * poly2 == poly3 - t_x * h_x[0]
+assert poly1 * poly2 == poly3 + t_x * h_x[0]
